@@ -3,7 +3,9 @@ import Image from "next/image"
 export default function InnovationInput({
   icon,
   type,
-  placeholder
+  placeholder,
+  setValue,
+  value
 }) {
   return (
     <>
@@ -17,7 +19,9 @@ export default function InnovationInput({
         <input
           type={type}
           placeholder={placeholder}
-          className="text-black outline-none w-full"
+          className="text-black outline-none w-full font-semibold"
+          onChange={(e) => setValue(e.target.value)}
+          value={value}
         />
       </div>
     </>
