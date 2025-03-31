@@ -8,6 +8,7 @@ import ProductButton from '@/components/ui/ProductButton'
 import service from '@/service'
 import useUserStore from '@/store/userStore'
 import Image from 'next/image'
+import { redirect } from 'next/navigation'
 import { use, useEffect, useState } from 'react'
 import { Reload } from 'react-ionicons'
 
@@ -22,13 +23,18 @@ export default function ProductPage({ params }) {
 
     if (_hasHydrated && user?.token) {
       const getProductById = async () => {
+        
+        if (!user?.token) {
+          redirect('/')
+        }
+
         try {
           const response = await service.getProductById(productId, user.token)
           setProductData(response.data[0])
-          console.log(response.data[0])
         } catch (error) {
           console.error("Erro ao buscar produto:", error)
         }
+
       }
 
       getProductById()
@@ -72,9 +78,11 @@ export default function ProductPage({ params }) {
                 <div className='grid grid-cols-4 gap-4'>
                   {
                     mockArr.map((index) => (
-                      <div className='shadow-sm px-2 rounded-md hover:border-slate-300 cursor-pointer'>
+                      <div
+                        className='shadow-sm px-2 rounded-md hover:border-slate-300 cursor-pointer'
+                        key={index}
+                      >
                         <Image
-                          key={index}
                           src={productData?.imagem}
                           width={120}
                           height={100}
