@@ -71,10 +71,10 @@ export default function ProductPage({ params }) {
               <div className=''>
                 <div className='grid grid-cols-4 gap-4'>
                   {
-                    mockArr.map((image) => (
+                    mockArr.map((index) => (
                       <div className='shadow-sm px-2 rounded-md hover:border-slate-300 cursor-pointer'>
                         <Image
-                          key={image}
+                          key={index}
                           src={productData?.imagem}
                           width={120}
                           height={100}
