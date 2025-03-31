@@ -24,7 +24,7 @@ export default function LoginButton({
       <button
         className={
           `${isDisable ? `bg-slate-300 text-slate-400` : `bg-white`} 
-          rounded-full p-4 text-black font-semibold w-[45%] cursor-pointer`
+          rounded-full p-4 text-black font-semibold w-full lg:w-[45%] cursor-pointer`
         }
         onClick={() => SignIn()}
       >

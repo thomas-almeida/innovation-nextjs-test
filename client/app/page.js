@@ -1,7 +1,6 @@
 'use client'
 
 import CardBoxComposition from "@/components/compositions/CardBoxComposition";
-import SignSettings from "@/components/settings/SignSettings";
 import InnovationInput from "@/components/ui/InnovationInput";
 import LoginButton from "@/components/ui/LoginButton";
 import { useMemo, useState } from "react";
@@ -39,7 +38,6 @@ export default function Home() {
             value={password}
             setValue={setPassword}
           />
-          <SignSettings />
           <LoginButton
             isDisable={isDisable}
             payload={payload}

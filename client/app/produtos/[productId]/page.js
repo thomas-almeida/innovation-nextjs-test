@@ -66,7 +66,7 @@ export default function ProductPage({ params }) {
               currentPage={productData.nome}
             />
           </div>
-          <div className='py-10 flex justify-between items-center gap-6'>
+          <div className='py-10 lg:flex justify-between items-center gap-6 '>
             <div>
               <div className='flex justify-center border border-slate-100 my-2 rounded-md shadow-sm cursor-pointer'>
                 <Image
@@ -76,7 +76,7 @@ export default function ProductPage({ params }) {
                   alt={productData.descricao}
                 />
               </div>
-              <div className=''>
+              <div>
                 <div className='grid grid-cols-4 gap-4'>
                   {
                     mockArr.map((index) => (
@@ -96,8 +96,8 @@ export default function ProductPage({ params }) {
                 </div>
               </div>
             </div>
-            <div className='w-[70%]'>
-              <div className=''>
+            <div className='lg:w-[70%]'>
+              <div className='py-4'>
                 <h1 className='text-2xl font-semibold'>{productData.nome}</h1>
                 <div className='my-4'>
                   <div className='flex justify-start items-center gap-2'>

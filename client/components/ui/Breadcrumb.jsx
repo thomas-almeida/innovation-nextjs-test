@@ -14,7 +14,7 @@ export default function Breadcrumb({
               width="15px"
               heigth="15px"
             />
-            <p>Página Inicial</p>
+            <p className="">Página Inicial</p>
           </div>
         </Link>
         <ChevronForwardOutline
