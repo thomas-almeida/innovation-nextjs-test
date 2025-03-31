@@ -1,6 +1,7 @@
 'use client'
 
 import ContainerContentComposition from '@/components/compositions/ContainerContentComposition'
+import Breadcrumb from '@/components/ui/Breadcrumb'
 import Navbar from '@/components/ui/Navbar'
 import Pricing from '@/components/ui/Pricing'
 import ProductButton from '@/components/ui/ProductButton'
@@ -51,9 +52,15 @@ export default function ProductPage({ params }) {
       <Navbar userData={user} />
       <main>
         <ContainerContentComposition>
+          <div>
+            <Breadcrumb
+              productId={productId}
+              currentPage={productData.nome}
+            />
+          </div>
           <div className='py-10 flex justify-between items-center gap-6'>
             <div>
-              <div className='flex justify-center border border-slate-100 my-2 rounded-md shadow-sm'>
+              <div className='flex justify-center border border-slate-100 my-2 rounded-md shadow-sm cursor-pointer'>
                 <Image
                   src={productData?.imagem}
                   width={300}
