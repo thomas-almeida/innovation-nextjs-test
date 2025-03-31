@@ -3,17 +3,21 @@ import { persist } from "zustand/middleware"
 
 const useUserStore = create(
   persist(
-    (set) => ({
+    (set, get) => ({
       user: null,
-      token: null,
+      _hasHydrated: false,
       setUser: (userData) => set({ user: userData }),
-      clearUser: () => set({ user: null, token: null }),
+      clearUser: () => set({ user: null }),
+      setHasHydrated: (state) => set({ _hasHydrated: state }),
     }),
     {
       name: "user-storage",
       getStorage: () => localStorage,
+      onRehydrateStorage: () => (state) => {
+        state.setHasHydrated(true)
+      },
     }
   )
-);
+)
 
 export default useUserStore
