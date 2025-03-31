@@ -21,10 +21,11 @@ export default function SearchInput({ setSearchValue, placeholder }) {
           onChange={(e) => setInputValue(e.target.value)}
         />
         <button
-          className="p-2 px-4 text-center rounded-full shadow-sm bg-[#a9ec05] cursor-pointer absolute right-0 hover:bg-[#bfdc74]"
+          className="p-2 px-4 text-center rounded-full shadow-sm bg-primary-500 cursor-pointer absolute right-0 hover:bg-secondary-500"
           onClick={() => setSearchValue({ [setBody(inputValue)]: inputValue })}
         >
-          <SearchSharp 
+          <SearchSharp
+            color="#FFFF"
             width="25px"
             heigth="25px"
           />

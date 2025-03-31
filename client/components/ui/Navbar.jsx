@@ -8,7 +8,7 @@ export default function Navbar({
 }) {
   return (
     <>
-      <div className="bg-[#8ec605] p-2">
+      <div className="bg-primary-500 p-2">
         <ContainerContentComposition>
           <div className="flex justify-between items-center">
             <Link
