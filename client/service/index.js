@@ -18,6 +18,41 @@ async function signIn(payload) {
   }
 }
 
+async function getProducts(payload, token) {
+  try {
+    const response = await api.post(`${baseUrl}/produtos/listar`, payload, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+
+    return response
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+async function getProductById(productId, token) {
+  try {
+
+    const response = await api.post(`${baseUrl}/produtos/listar`, {
+      codigo_produto: productId
+    },
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }
+    )
+
+    return response
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export default {
-  signIn
+  signIn,
+  getProducts,
+  getProductById
 }
