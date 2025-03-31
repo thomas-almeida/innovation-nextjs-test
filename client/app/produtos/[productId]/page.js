@@ -8,6 +8,7 @@ import ProductButton from '@/components/ui/ProductButton'
 import service from '@/service'
 import useUserStore from '@/store/userStore'
 import Image from 'next/image'
+import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { use, useEffect, useState } from 'react'
 import { Reload } from 'react-ionicons'
@@ -16,6 +17,7 @@ export default function ProductPage({ params }) {
   const { productId } = use(params)
   const { user, _hasHydrated } = useUserStore()
   const [productData, setProductData] = useState(null)
+  const buyMeACoffeLink = "https://nubank.com.br/cobrar/517l3/67eab1ae-675b-4d1b-bcb5-9b1503a3c671"
 
   const mockArr = [0, 1, 2, 3]
 
@@ -23,7 +25,7 @@ export default function ProductPage({ params }) {
 
     if (_hasHydrated && user?.token) {
       const getProductById = async () => {
-        
+
         if (!user?.token) {
           redirect('/')
         }
@@ -119,9 +121,13 @@ export default function ProductPage({ params }) {
                   </p>
                 </div>
                 <div>
-                  <ProductButton
-                    text={"Comprar Via PIX"}
-                  />
+                  <Link
+                    href={buyMeACoffeLink}
+                  >
+                    <ProductButton
+                      text={"Comprar Via PIX"}
+                    />
+                  </Link>
                 </div>
               </div>
             </div>
